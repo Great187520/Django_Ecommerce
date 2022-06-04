@@ -37,7 +37,7 @@ h1,h2,h3,h4,h5,h6{
 
 #cart-total{
 	display: flex;
-    flex-direction: row;
+	flex:auto;
 	align-items: flex-end;
 	color:#fff;
 	background-color: red;
