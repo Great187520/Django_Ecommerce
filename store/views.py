@@ -74,8 +74,8 @@ def updateItem(request):
     return JsonResponse('Item was added', safe=False)
 
 def processOrder(request):
-    transaction_id = date_added.datetime.now().timestamp()
-    data = json.loads(requests.body)
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
 
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -85,7 +85,7 @@ def processOrder(request):
 
         if total == order.get_cart_total:
             order.complete = True
-        oder.save()
+        order.save()
 
         if order.shipping == True:
             ShippingAddress.objects.create(
